@@ -11,6 +11,6 @@ class Resolvers::CreateLink < GraphQL::Function
   # args - are the arguments passed
   # _ctx - is the GraphQL context
   def call(_obj, args, _ctx)
-    Link.create!(description: args[:description], url: args[:url], )
+    Link.create!(description: args[:description], url: args[:url], user: _ctx[:current_user])
   end
 end
